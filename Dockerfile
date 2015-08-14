@@ -30,8 +30,8 @@ COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groov
 
 # set shell variables for java installation
 ENV java_version 1.8.0_51
-ENV filename jdk-8u51-linux-x64.tar.gz
-ENV downloadlink http://download.oracle.com/otn-pub/java/jdk/8u11-b12/$filename
+ENV filename jre-8u51-linux-x64.tar.gz
+ENV downloadlink http://download.oracle.com/otn-pub/java/jdk/8u51-b16/$filename
 
 # download java, accepting the license agreement
 RUN wget --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/$filename $downloadlink 
