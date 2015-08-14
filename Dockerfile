@@ -2,10 +2,11 @@ FROM java:8u45-jdk
 
 RUN apt-get update && apt-get install -y wget git gradle nano curl zip && rm -rf /var/lib/apt/lists/*
 
+
 # set shell variables for java installation
-ENV java_version 1.8.0_51
-ENV filename jre-8u51-linux-x64.tar.gz
-ENV downloadlink http://download.oracle.com/otn-pub/java/jdk/8u51-b16/$filename
+ENV java_version 1.8.0_11
+ENV filename jdk-8u11-linux-x64.tar.gz
+ENV downloadlink http://download.oracle.com/otn-pub/java/jdk/8u11-b12/$filename
 
 # download java, accepting the license agreement
 RUN wget --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/$filename $downloadlink 
@@ -17,6 +18,7 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 # configure symbolic links for the java and javac executables
 RUN update-alternatives --install /usr/bin/java java $JAVA_HOME/bin/java 20000 && update-alternatives --install /usr/bin/javac javac $JAVA_HOME/bin/javac 20000
+
 
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 50000
